@@ -1,0 +1,190 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.parent{
+    z-index: -100;
+}
+body{
+    /* background-image: url('./laptop-5673901.jpg'); */
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+    /* background-size: 100% 100%; */
+    background-color: black;
+}
+
+img{
+    height:66px;
+    border-radius: 100%;
+    
+}
+
+#searchmovies{
+    margin-top:25px  ;
+  
+}
+#searchbtn{
+    all: unset;
+    background-color: white;
+    border-radius: 20px;
+    width: 15rem;
+    height: 30px;
+    text-align: center;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    
+}
+.bottom{
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+h2{
+    background: linear-gradient(to right,red,blue);
+    background-clip:text;
+    color: transparent;
+    margin-top: 10px;
+}
+.card{
+
+
+    width: 220px;
+    height: 300px;
+    border: 2px solid white;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    border: 1px solid grey;
+    border-radius: 1rem;
+    background-color: black;
+    /* backdrop-filter: blur(20px); */
+    position: relative;
+}
+@property --angle{
+    syntax:"<angle>";
+    initial-value:0deg;
+    inherits:false;
+}
+
+.card::after ,.card::before{
+    --angle:0deg;
+    content:'';
+    position: absolute;
+    height:100% ;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle),  red,#00ff99,#006aff,#ff0095,red);
+    top: 50%;
+    left:50%;
+    translate:-50% -50% ;
+    z-index: -1;
+    padding: 3px;
+    border-radius: 1rem;
+    animation:3s spin linear infinite
+
+}
+.card::before{
+    filter:blur(1.5rem);
+    opacity: 0.5;
+}
+@keyframes spin{
+    from{
+        --angle:0deg
+    }
+    to{
+        --angle:360deg
+
+    }
+}
+
+
+
+#Big{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    margin-top: 20px;
+    justify-content: center;
+}
+.poster{height: 200px;
+    width: 220px;
+   
+    }
+.title{
+    color: white;
+}
+.year
+{
+     color: white;
+    }
+nav{
+  
+    border: 1px solid rgb(224, 209, 209) ;
+    height: 92px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.name{
+z-index: 1;
+
+
+}
+@media (max-width:270px){
+    nav{
+        height: 130px;
+    }
+    searchbutton{
+        width:7rem;
+    }
+    
+
+}
+
+
+
+.searchResult{
+  
+    width: 15rem;
+   display: flex;
+    margin-top: -0.1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-left: 1rem;
+    background-color: white;
+    position: absolute;
+    z-index: 100;
+ 
+}
+.searchResult:last-child{
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+.searchitem:hover{
+    background-color: rgba(128, 128, 128, 0.454);
+
+}
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Stack items vertically */
+        height: auto; /* Remove fixed height */
+        padding: 10px; /* Adjust padding */
+    }
+}   
+
+@media (max-width: 480px) {
+    #searchbtn {
+        width: 100%; /* Full width for even smaller screens */
+        height: 40px; /* Increase height for better usability */
+    }
+}
+
+
